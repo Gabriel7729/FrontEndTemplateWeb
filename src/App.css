@@ -1,0 +1,6 @@
+.center-div { /* Apply this class to your container */
+  height: 100vh;        /* Make the container take full viewport height */
+  display: flex;         /* Use flexbox for easy centering */
+  align-items: center;   /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+}
