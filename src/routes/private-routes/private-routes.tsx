@@ -3,7 +3,7 @@ import { Center, Loader } from "@mantine/core";
 
 export const PrivateRoutes = ({ children }: any) => {
   const isLoading = false;
-  const loggedUser = false;
+  const loggedUser = true;
   if (isLoading)
     return (
       <Center className="center-div">

@@ -37,7 +37,7 @@ export const DashboardRoutes = (): JSX.Element => {
           />
           <Image radius="md" h={40} w="auto" fit="contain" src={Logo} />
           <Text c="white" fw="700">
-            PacaStock
+            Assurance
           </Text>
           <Navbar />
         </Group>
