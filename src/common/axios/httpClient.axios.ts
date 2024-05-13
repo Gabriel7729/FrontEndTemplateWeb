@@ -1,17 +1,20 @@
 import axios, { AxiosResponse } from "axios";
 import { useAuthStore } from "../store/session.store";
 
-const baseURL = "http://localhost:5001/api";
+const baseURL = "https://localhost:44395/api";
 
 const apiInstance = axios.create({
   baseURL,
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 apiInstance.interceptors.request.use((config) => {
-  const idToken = useAuthStore.getState().getToken();
-  if (idToken) {
-    config.headers.Authorization = `Bearer ${idToken}`;
-  }
+  // const idToken = useAuthStore.getState().getToken();
+  // if (idToken) {
+  //   config.headers.Authorization = `Bearer ${idToken}`;
+  // }
   return config;
 });
 
