@@ -1,14 +1,39 @@
-import Home from "../../pages/home";
+import { IconCar } from "@tabler/icons-react";
+import { RouteConfig } from "../../common/types/route.type";
+import VehiculosPage from "../../pages/vehiculos";
+import VehiculosDetallePage from "../../pages/vehiculos/details";
 
-export const mainRouter = [
+export const MainRouter: RouteConfig[] = [
   {
-    path: "/",
-    element: Home,
-    title: "Dashboard",
-  },
-  {
-    path: "/Dashboard",
-    element: Home,
-    title: "Dashboard",
+    label: "Vehiculos",
+    icon: IconCar,
+    initiallyOpened: false,
+    accessRoles: ["admin"],
+    links: [
+      {
+        label: "Administración de Vehiculos",
+        link: "/vehiculos",
+        element: VehiculosPage,
+      },
+      {
+        label: "Detalle de Vehiculos",
+        link: "/vehiculos/:id",
+        element: VehiculosDetallePage,
+        notShowInMenu: true,
+      },
+    ],
   },
 ];
+
+export const generateRoutes = (routes: RouteConfig[], role: string) => {
+  return routes.flatMap((route) =>
+    route.links
+      .filter((link) => link.public || route.accessRoles.includes(role))
+      .map((link) => ({
+        title: route.label,
+        path: link.link,
+        element: link.element,
+        accessRoles: route.accessRoles,
+      }))
+  );
+};

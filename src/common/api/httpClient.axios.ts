@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from "axios";
-import { useAuthStore } from "../store/session.store";
 
-const baseURL = "https://localhost:44395/api";
+const baseURL = "http://localhost:57678";
 
 const apiInstance = axios.create({
   baseURL,
@@ -11,10 +10,6 @@ const apiInstance = axios.create({
 });
 
 apiInstance.interceptors.request.use((config) => {
-  // const idToken = useAuthStore.getState().getToken();
-  // if (idToken) {
-  //   config.headers.Authorization = `Bearer ${idToken}`;
-  // }
   return config;
 });
 

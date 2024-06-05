@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
-import apiInstance from "../common/axios/httpClient.axios";
+import apiInstance from "../common/api/httpClient.axios";
 import {
   ResponseModel,
   ResponseListModel,

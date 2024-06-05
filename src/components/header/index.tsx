@@ -7,22 +7,32 @@ import {
   Title,
   UnstyledButton,
 } from "@mantine/core";
-import {
-  IconSettings,
-  IconTrash
-} from "@tabler/icons-react";
+import { IconLogout, IconSettings } from "@tabler/icons-react";
 import classes from "./Header.module.css";
+import { getFirstLetter } from "../../common/utils/utils";
+import { useNavigate } from "react-router-dom";
 
 interface DashboardProps {
   title: string;
+  link: string;
 }
-export const Header = ({ title }: DashboardProps) => {
+export const Header = ({ title, link }: DashboardProps) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Group>
-        <Title size="h4" style={{ color: "#F28D38" }}>
-          {title}
-        </Title>
+        <UnstyledButton
+          className="noFocusOutline"
+          color="#F28D38"
+          onClick={() => {
+            navigate(link);
+          }}
+        >
+          <Title size="h4" style={{ color: "#F28D38" }}>
+            {title}
+          </Title>
+        </UnstyledButton>
       </Group>
       <Menu shadow="md" width={200}>
         <Menu.Target>
@@ -31,7 +41,7 @@ export const Header = ({ title }: DashboardProps) => {
               <div>
                 <Group>
                   <Text fz="8px" tt="uppercase" fw={700} c="dimmed">
-                    Karlyn
+                    Gabriel De La Rosa
                   </Text>
                   <Badge
                     variant="light"
@@ -44,29 +54,39 @@ export const Header = ({ title }: DashboardProps) => {
                 </Group>
 
                 <Text fz="10px" fw={500} className={classes.name}>
-                  karlyn@gmail.com
+                  admin@est.intec.edu.do
                 </Text>
               </div>
               <Avatar
+                tt="uppercase"
                 variant="filled"
                 color="rgba(241, 136, 53, 1)"
                 radius="sm"
               >
-                K
+                {getFirstLetter("Gabriel De La Rosa")}
               </Avatar>
             </Group>
           </UnstyledButton>
         </Menu.Target>
 
         <Menu.Dropdown>
-          <Menu.Label>Aplicación</Menu.Label>
-          <Menu.Item leftSection={<IconSettings stroke={1.3} />}>
+          <Menu.Label>Usuario</Menu.Label>
+          <Menu.Item
+            onClick={() => {
+              navigate("/usuario/cuenta");
+            }}
+            leftSection={<IconSettings stroke={1.3} />}
+          >
             <Text size="sm">Configuración</Text>
           </Menu.Item>
           <Menu.Divider />
           <Menu.Label>Otros</Menu.Label>
-          <Menu.Item color="red" leftSection={<IconTrash stroke={1.3} />}>
-            <Text size="sm">Salir</Text>
+          <Menu.Item
+            color="red"
+            leftSection={<IconLogout stroke={1.3} />}
+            onClick={() => {}}
+          >
+            <Text size="sm">Cerrar Sesión</Text>
           </Menu.Item>
         </Menu.Dropdown>
       </Menu>

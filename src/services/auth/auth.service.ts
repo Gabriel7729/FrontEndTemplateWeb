@@ -1,4 +1,4 @@
-import apiInstance from "../../common/axios/httpClient.axios";
+import apiInstance from "../../common/api/httpClient.axios";
 import { LoginRequest, LoginResponse } from "../../models/auth/auth.model";
 import { ResponseModel } from "../../models/base.model";
 
