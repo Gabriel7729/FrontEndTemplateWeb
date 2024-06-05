@@ -8,7 +8,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import Logo from "../../assets/logos/logoApp.png";
+import Logo from "../../assets/logos/image.png";
 import Header from "../../components/header";
 import Navbar from "../../components/navbar";
 import { MainRouter, generateRoutes } from "./main-router";
@@ -57,7 +57,7 @@ export const DashboardRoutes = (): JSX.Element => {
             <Group>
               <Image radius="md" h={40} w="auto" fit="contain" src={Logo} />
               <Text c="white" fw="700">
-                CarfaxRD
+                HappyPerson
               </Text>
             </Group>
           </UnstyledButton>
