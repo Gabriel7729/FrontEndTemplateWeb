@@ -2,6 +2,7 @@ import { IconCar } from "@tabler/icons-react";
 import { RouteConfig } from "../../common/types/route.type";
 import VehiculosPage from "../../pages/vehiculos";
 import VehiculosDetallePage from "../../pages/vehiculos/details";
+import { FileUploadPage } from "../../pages/files";
 
 export const MainRouter: RouteConfig[] = [
   {
@@ -20,6 +21,19 @@ export const MainRouter: RouteConfig[] = [
         link: "/vehiculos/:id",
         element: VehiculosDetallePage,
         notShowInMenu: true,
+      },
+    ],
+  },
+  {
+    label: "Archivos",
+    icon: IconCar,
+    initiallyOpened: false,
+    accessRoles: ["admin"],
+    links: [
+      {
+        label: "Subir Archivos",
+        link: "/archivos",
+        element: FileUploadPage,
       },
     ],
   },
