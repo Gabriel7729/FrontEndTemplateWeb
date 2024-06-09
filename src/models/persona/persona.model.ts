@@ -5,3 +5,9 @@ export interface PersonaResponseDto {
     fechaNacimiento: string;
     estado: string;
 }
+
+export interface BuscadoResponseDto {
+    faceId: string;
+    externalImageId: string;
+    confidence: string;
+}
