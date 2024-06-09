@@ -1,7 +1,8 @@
-import { IconCar } from "@tabler/icons-react";
+import { IconCar, IconUser } from "@tabler/icons-react";
 import { RouteConfig } from "../../common/types/route.type";
 import VehiculosPage from "../../pages/vehiculos";
 import VehiculosDetallePage from "../../pages/vehiculos/details";
+import PersonasPage from "../../pages/personas";
 
 export const MainRouter: RouteConfig[] = [
   {
@@ -21,6 +22,19 @@ export const MainRouter: RouteConfig[] = [
         element: VehiculosDetallePage,
         notShowInMenu: true,
       },
+    ],
+  },
+  {
+    label: "Personas",
+    icon: IconUser,
+    initiallyOpened: false,
+    accessRoles: ["admin"],
+    links: [
+      {
+        label: "Registro de Personas",
+        link: "/personas",
+        element: PersonasPage,
+      }
     ],
   },
 ];
