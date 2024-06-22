@@ -1,9 +1,11 @@
-import { IconCar, IconUser } from "@tabler/icons-react";
+import { IconCar, IconCode, IconUser } from "@tabler/icons-react";
 import { RouteConfig } from "../../common/types/route.type";
 import VehiculosPage from "../../pages/vehiculos";
 import VehiculosDetallePage from "../../pages/vehiculos/details";
 import PersonasPage from "../../pages/personas";
 import PersonasCitizienPage from "../../pages/personas/citizien";
+import ValidationPage from "../../pages/validation";
+import SendEmailPage from "../../pages/validation/sendEmailView";
 
 export const MainRouter: RouteConfig[] = [
   {
@@ -40,6 +42,24 @@ export const MainRouter: RouteConfig[] = [
         label: "Personas Padron",
         link: "/personas/padron",
         element: PersonasCitizienPage,
+      }
+    ],
+  },
+  {
+    label: "Validaciones",
+    icon: IconCode,
+    initiallyOpened: false,
+    accessRoles: ["admin"],
+    links: [
+      {
+        label: "Envio de OTP",
+        link: "/validaciones/otp",
+        element: ValidationPage,
+      },
+      {
+        label: "Correo",
+        link: "/envio/correo",
+        element: SendEmailPage,
       }
     ],
   },
