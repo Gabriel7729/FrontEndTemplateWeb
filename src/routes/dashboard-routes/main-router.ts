@@ -6,6 +6,7 @@ import PersonasPage from "../../pages/personas";
 import PersonasCitizienPage from "../../pages/personas/citizien";
 import ValidationPage from "../../pages/validation";
 import SendEmailPage from "../../pages/validation/sendEmailView";
+import AddOrEditTravel from "../../pages/travel/travel";
 
 export const MainRouter: RouteConfig[] = [
   {
@@ -60,6 +61,19 @@ export const MainRouter: RouteConfig[] = [
         label: "Correo",
         link: "/envio/correo",
         element: SendEmailPage,
+      }
+    ],
+  },
+  {
+    label: "Viajes",
+    icon: IconCode,
+    initiallyOpened: false,
+    accessRoles: ["admin"],
+    links: [
+      {
+        label: "Reservar viaje",
+        link: "/travels",
+        element: AddOrEditTravel,
       }
     ],
   },
