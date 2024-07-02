@@ -32,3 +32,9 @@ export type ResponseModel<T> = {
     validationErrors: string[];
     value: T;
 };
+
+export type GeneralResponse = {
+    isSuccess: boolean;
+    message: string;
+    warnings: string[];
+};
